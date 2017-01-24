@@ -33,22 +33,22 @@ import intlData from './Homepage.intl';
  */
 class Homepage extends React.Component {
 
-    static contextTypes = {
-        getStore: React.PropTypes.func.isRequired
-    };
+	static contextTypes = {
+		'getStore' : React.PropTypes.func.isRequired
+	};
 
-    //*** Required Data ***//
+	//*** Required Data ***//
 
-    static fetchData = function (context, params, query, done) {
-        async.parallel([
-            function (callback) {
-                context.executeAction(fetchContents, {tags: 'homepage'}, callback);
-            },
-            function (callback) {
-                context.executeAction(fetchHomepageProducts, {}, callback);
-            }
-        ], done);
-    };
+	static fetchData = function ( context, params, query, done ) {
+		async.parallel( [
+			function ( callback ) {
+				context.executeAction( fetchContents, { 'tags' : 'homepage' }, callback );
+			},
+			function ( callback ) {
+				context.executeAction(fetchHomepageProducts, {}, callback);
+			}
+		], done );
+	};
 
     //*** Initial State ***//
 
